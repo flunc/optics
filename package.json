@@ -1,0 +1,23 @@
+{
+  "name": "flunc-optics",
+  "version": "0.0.0",
+  "description": "Profunctor optics - lenses, prisms, traversals, folds and isos",
+  "main": "index.js",
+  "scripts": {
+    "release-major": "xyz --repo git@github.com:ramda/ramda-lens.git --increment major",
+    "release-minor": "xyz --repo git@github.com:ramda/ramda-lens.git --increment minor",
+    "release-patch": "xyz --repo git@github.com:ramda/ramda-lens.git --increment patch",
+    "test": "mocha test ."
+  },
+  "author": "Scott Christopher",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "0.19.x",
+    "ramda-fantasy": "github:ramda/ramda-fantasy"
+  },
+  "devDependencies": {
+    "jsverify": "0.7.x",
+    "mocha": "2.3.x",
+    "xyz": "0.5.x"
+  }
+}
