@@ -12,7 +12,11 @@ const
 
 // _Cons :: Prism [a] [b] (a, [a]) (b, [b])
 const _Cons = Prism.prism(
-  t => R.prepend(Tuple.fst(t), Tuple.snd(t)),
+  t => {
+    const head = Tuple.fst(t);
+    const tail = Tuple.snd(t);
+    return R.is(String, tail) ? head + tail : R.prepend(head, tail);
+  },
   R.ifElse(R.isEmpty,
            Either.Left,
            xss => Either.Right(Tuple(R.head(xss), R.tail(xss)))));
