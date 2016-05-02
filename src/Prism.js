@@ -3,10 +3,12 @@ const
   RF       = require('ramda-fantasy'),
   Choice   = require('./Internal/Profunctor/Class/Choice'),
   PF       = require('./Internal/Profunctor/Class/Profunctor'),
+  Market   = require('./Internal/Profunctor/Market'),
   Tagged   = require('./Internal/Profunctor/Tagged'),
 
   Either = RF.Either,
   Maybe  = RF.Maybe,
+  Tuple  = RF.Tuple,
   Unit   = {};
 
 
@@ -30,6 +32,19 @@ const only = a =>
   prism_(() => a,
          x => R.equals(a, x) ? Maybe.Just(Unit)
                              : Maybe.Nothing());
+
+const withPrism = R.curry((p, f) => {
+  const m = p(Market(x => x, Either.Right));
+  return f(m.to, m.fro);
+});
+
+const aside = k => withPrism(k,
+  (to, fro) => prism(
+    R.map(to),
+    es => fro(Tuple.snd(es)).bimap(
+      t => Tuple(Tuple.fst(es), t),
+      a => Tuple(Tuple.fst(es), a)
+    )));
 
 // _Left :: Prism (Either a c) (Either b c) a b
 const _Left  = Choice.left;
@@ -56,6 +71,8 @@ module.exports = {
   review,
   nearly,
   only,
+  withPrism,
+  aside,
   _Left,
   _Right,
   _Nothing,
