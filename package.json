@@ -2,6 +2,10 @@
   "name": "flunc-optics",
   "version": "0.0.0",
   "description": "Profunctor optics - lenses, prisms, traversals, folds and isos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flunc/optics.git"
+  },
   "main": "index.js",
   "scripts": {
     "release-major": "xyz --repo git@github.com:flunc/optics.git --increment major",
