@@ -7,7 +7,8 @@
     "release-major": "xyz --repo git@github.com:ramda/ramda-lens.git --increment major",
     "release-minor": "xyz --repo git@github.com:ramda/ramda-lens.git --increment minor",
     "release-patch": "xyz --repo git@github.com:ramda/ramda-lens.git --increment patch",
-    "test": "mocha test ."
+    "test": "mocha test .",
+    "test:examples": "mocha examples"
   },
   "author": "Scott Christopher",
   "license": "MIT",
@@ -19,5 +20,6 @@
     "jsverify": "0.7.x",
     "mocha": "2.3.x",
     "xyz": "0.5.x"
-  }
+  },
+  "files": ["index.js", "src"]
 }

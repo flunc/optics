@@ -1,12 +1,10 @@
-var R = require('ramda');
-
-module.exports = R.mergeAll([
-  require('./src/Cons'),
-  require('./src/Fold'),
-  require('./src/Getter'),
-  require('./src/Iso'),
-  require('./src/Lens'),
-  require('./src/Prism'),
-  require('./src/Setter'),
-  require('./src/Traversal')
-]);
+module.exports = {
+  Cons:      require('./src/Cons'),
+  Fold:      require('./src/Fold'),
+  Getter:    require('./src/Getter'),
+  Iso:       require('./src/Iso'),
+  Lens:      require('./src/Lens'),
+  Prism:     require('./src/Prism'),
+  Setter:    require('./src/Setter'),
+  Traversal: require('./src/Traversal')
+};
