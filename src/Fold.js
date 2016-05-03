@@ -4,7 +4,6 @@ const
 
   Either = RF.Either,
   Maybe  = RF.Maybe,
-  Tuple  = RF.Tuple,
 
   Additive       = require('./Internal/Monoid/Additive'),
   Conj           = require('./Internal/Monoid/Conj'),
@@ -16,8 +15,7 @@ const
   Multiplicative = require('./Internal/Monoid/Multiplicative'),
   Profunctor     = require('./Internal/Profunctor/Class/Profunctor'),
   Choice         = require('./Internal/Profunctor/Class/Choice'),
-  Forget         = require('./Internal/Profunctor/Forget'),
-  Star           = require('./Internal/Profunctor/Star');
+  Forget         = require('./Internal/Profunctor/Forget');
 
 
 const Unit = {};
@@ -120,7 +118,7 @@ const hasnt = R.curry((p, s) =>
 
 // filtered :: Choice p => (a -> Boolean) -> OpticP p a a
 const filtered = R.curry((f, c) =>
-  Profunctor.dimap(R.ifElse(f, Either.Right, Either.Left), e => e.value, Choice.right(c)));
+  Profunctor.dimap(R.ifElse(f, Either.Right, Either.Left), e => e.bimap(x => x, x => x), Choice.right(c)));
 
 module.exports = {
   foldMapOf,
@@ -128,6 +126,8 @@ module.exports = {
   preview,
   foldrOf,
   foldlOf,
+  allOf,
+  anyOf,
   andOf,
   orOf,
   elemOf,
