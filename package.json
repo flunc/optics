@@ -11,7 +11,8 @@
     "release-major": "xyz --repo git@github.com:flunc/optics.git --increment major",
     "release-minor": "xyz --repo git@github.com:flunc/optics.git --increment minor",
     "release-patch": "xyz --repo git@github.com:flunc/optics.git --increment patch",
-    "test": "mocha test .",
+    "test": "npm run test:unit && npm run test:examples",
+    "test:unit": "mocha test .",
     "test:examples": "mocha examples"
   },
   "author": "Scott Christopher",
