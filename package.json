@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "ramda": "0.19.x",
-    "ramda-fantasy": "github:ramda/ramda-fantasy"
+    "ramda-fantasy": "0.5.x"
   },
   "devDependencies": {
     "jsverify": "0.7.x",
