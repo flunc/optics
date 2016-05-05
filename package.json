@@ -1,6 +1,6 @@
 {
   "name": "flunc-optics",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Profunctor optics - lenses, prisms, traversals, folds and isos",
   "repository": {
     "type": "git",
